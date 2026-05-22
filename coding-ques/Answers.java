@@ -4,11 +4,11 @@ public class Answers {
    public static void main(String[] args) {
 
     //Inputs
-    int[] nums = {3,0,1};
+    int[] nums = {0,0,1,1,1,2,2,3,3,4};
 
 
     //Funtion 
-    System.out.println(missingNumber(nums));
+    System.out.println(removeDuplicates(nums));
 
     }
 
@@ -30,8 +30,23 @@ public class Answers {
         return 1;
     }
 
+    /*Q.2 https://leetcode.com/problems/remove-duplicates-from-sorted-array
+                Brut Force
+                Time O(n^2)
+                Space   */
+    public static int removeDuplicates(int[] nums){
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[i] != nums[j]){
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i+1;
+    }
 
-    /* Q3. https://leetcode.com/problems/two-sum/  
+
+    /*Q3. https://leetcode.com/problems/two-sum/  
             Solution brut force
             Time O(n^2)
             Space O(1) */
