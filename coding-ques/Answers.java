@@ -4,11 +4,11 @@ public class Answers {
    public static void main(String[] args) {
 
     //Inputs
-    int[] nums = {0,0,1,1,1,2,2,3,3,4};
+    int[] nums = {0,1,0,3,12};
 
 
     //Funtion 
-    System.out.println(removeDuplicates(nums));
+    moveZeroes(nums);
 
     }
 
@@ -58,6 +58,24 @@ public class Answers {
         }
         return new int[]{};
     }
-    
+
+    /*Q4. https://leetcode.com/problems/move-zeroes/description/
+            Solution Brut force
+            Time O(n^2)
+            Space O(1)*/ 
+    public static void moveZeroes(int[] nums) {
+    int l = 0;
+    int r = 0;
+        for (int i = 0; i < nums.length ; i++) {
+            while(nums[r] != 0){
+                int move = nums[r];
+                nums[r] = nums[l];
+                nums[l] = move;
+                l++;
+            }
+            r++;
+        }   
+    }
+
 }
 
