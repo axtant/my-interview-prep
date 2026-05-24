@@ -4,11 +4,12 @@ public class Answers {
    public static void main(String[] args) {
 
     //Inputs
-    int[] nums = {0,1,0,3,12};
+    String s = "anagram";
+    String t = "nagaram";
 
 
     //Funtion 
-    moveZeroes(nums);
+    System.out.println(isAnagram(s, t));
 
     }
 
@@ -64,8 +65,8 @@ public class Answers {
             Time O(n^2)
             Space O(1)*/ 
     public static void moveZeroes(int[] nums) {
-    int l = 0;
-    int r = 0;
+        int l = 0;
+        int r = 0;
         for (int i = 0; i < nums.length ; i++) {
             while(nums[r] != 0){
                 int move = nums[r];
@@ -76,6 +77,22 @@ public class Answers {
             r++;
         }   
     }
+
+    /*Q6. https://leetcode.com/problems/valid-anagram/
+            Solution Brut force
+            Time O(n)
+            Space O(1)*/
+    public static boolean isAnagram(String s, String t) {
+        int[] arr = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            arr[s.charAt(i) - 'a']++;
+            arr[t.charAt(i) - 'a']--;
+        }
+        for (int x : arr){
+            if (x != 0) return false;
+        }
+        return true;
+    }   
 
 }
 
