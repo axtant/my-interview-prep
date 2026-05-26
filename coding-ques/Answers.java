@@ -4,13 +4,14 @@ public class Answers {
    public static void main(String[] args) {
 
     //Inputs
-    String s = "anagram";
-    String t = "nagaram";
-
+    char[] s = {'h','e','l','l','o'};
+        
 
     //Funtion 
-    System.out.println(isAnagram(s, t));
-
+    reverseString(s);
+        for (char c : s){
+            System.out.println(c);
+        }
     }
 
     /*Q.1 https://leetcode.com/problems/missing-number 
@@ -92,7 +93,23 @@ public class Answers {
             if (x != 0) return false;
         }
         return true;
-    }   
+    }
+    
+    /*Q7. https://leetcode.com/problems/reverse-string/description/
+            Solution Brut force
+            Time O(n)
+            Space O(1)*/
+    public static void reverseString(char[] s) {
+        int l = 0;
+        int r = s.length - 1;
+        while (l < r){
+            char temp = s[l];
+            s[l] = s[r];
+            s[r] = temp;
+            l++;
+            r--;
+        }
+    }
 
 }
 
